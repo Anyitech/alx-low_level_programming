@@ -1,29 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
- * main - Program Entry
- * Description: Printing combinations of three digit numbers
- * Return: 0
+ * main - Prints all possible combinations of two different digits,
+ *        in ascending order, separated by a comma followed by a space.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	int i;
-	char str[3];
+	int digit1, digit2;
 
-	for (i = 0; i < 100; i++)
+	for (digit1 = 0; digit1 < 9; digit1++)
 	{
-		char str = itoa(i, str, 10);
-
-		if (str[0] != str[1])
+		for (digit2 = digit1 + 1; digit2 < 10; digit2++)
 		{
-			putchar((i / 10) + '0');
-			putchar((i % 10) + '0');
+			putchar((digit1 % 10) + '0');
+			putchar((digit2 % 10) + '0');
+
+			if (digit1 == 8 && digit2 == 9)
+				continue;
 			putchar(',');
 			putchar(' ');
 		}
 	}
+
 	putchar('\n');
+
 	return (0);
 }
