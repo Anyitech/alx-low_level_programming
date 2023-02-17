@@ -1,35 +1,31 @@
 #include <stdio.h>
 
 /**
- * main - Program Entry
- * Description: Printing combinations of two-digit numbers
- * Return: 0
+ * main - Prints all possible combinations of three different digits,
+ *        in ascending order, separated by a comma followed by a space.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	int x;
-	int y;
-	int max = 100;
+	int digit1, digit2, digit3;
 
-	for (x = 0; x < max ; x++)
+	for (digit1 = 0; digit1 < 8; digit1++)
 	{
-		for (y = x + 1 ; y < max; y++)
+		for (digit2 = digit1 + 1; digit2 < 9; digit2++)
 		{
-			putchar (x / 10 + '0');
-			putchar (x % 10 + '0');
-			putchar (' ');
+			for (digit3 = digit2 + 1; digit3 < 10; digit3++)
+			{
+				putchar((digit1 % 10) + '0');
+				putchar((digit2 % 10) + '0');
+				putchar((digit3 % 10) + '0');
 
-			putchar (y / 10 + '0');
-			putchar (y % 10 + '0');
-
-			if (x == 98 && y == 99)
-				break;
-
-			putchar(',');
-			putchar (' ');
-
+				if (digit1 == 7 && digit2 == 8 && digit3 == 9)
+					continue;
+				putchar(',');
+				putchar(' ');
+			}
 		}
-
 	}
 
 	putchar('\n');
